@@ -7,15 +7,16 @@ import { Metadata } from "next";
 import { slug } from "github-slugger";
 
 interface TagPageProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: TagPageProps): Promise<Metadata> {
-  const { tag } = params;
+  const resolvedParams = await params;
+  const { tag } = resolvedParams;
   const title = tag.split("-").join(" ");
   return {
     title: `Tags: ${title}`,
@@ -29,8 +30,9 @@ export const generateStaticParams = () => {
   return paths;
 };
 
-export default function TagPage({ params }: TagPageProps) {
-  const { tag } = params;
+export default async function TagPage({ params }: TagPageProps) {
+  const resolvedParams = await params;
+  const { tag } = resolvedParams;
   const title = tag.split("-").join(" ");
   const displayPosts = getPostsByTagSlug(posts, tag);
   const tags = getAllTags(posts);

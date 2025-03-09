@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
 export function MobileNav() {

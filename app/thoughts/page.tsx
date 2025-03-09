@@ -13,21 +13,19 @@ export const metadata: Metadata = {
 };
 
 interface ThoughtsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 export default async function ThoughtsPage({
   searchParams,
 }: ThoughtsPageProps) {
-  // only after next 15.0.0
-  const resolvedParams = await Promise.resolve(searchParams);
-  const currentPage = Number(resolvedParams?.page) || 1;
+  const resolvedParams = await searchParams;
+  const currentPage = Number(resolvedParams.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / MAX_THOUGHTS_PER_PAGE);
 
-  // Calculate the what pages to display on the current page number
   const displayPosts = sortedPosts.slice(
     (currentPage - 1) * MAX_THOUGHTS_PER_PAGE,
     currentPage * MAX_THOUGHTS_PER_PAGE
