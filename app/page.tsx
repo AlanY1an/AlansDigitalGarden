@@ -1,40 +1,50 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import StickyNote from "@/components/widget/sticky-notes/StickyNote";
 
 export default function Home() {
   return (
-    <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:py-32">
-        <div className="container flex flex-col gap-4 text-center">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-balance">
-            Hello, I&apos;m Alan
-          </h1>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl text-balance">
-            I throw my thoughts here.
-          </p>
-          <div className="flex flex-col gap-4 justify-center sm:flex-row">
-            <Link
-              href="/thoughts"
-              className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
-            >
-              View my thoughts
-            </Link>
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-fit"
-              )}
-            >
-              GitHub
-            </Link>
+    <div className="container max-w-7xl mx-auto px-4 overflow-x-hidden">
+      <section className="flex flex-col space-y-6 pb-8 pt-6 py-5 md:pb-12 md:mt-10">
+        <div className="flex flex-col sm:flex-row gap-4 text-center">
+          <Avatar className="h-25 w-25 rounded-sm order-last sm:order-first">
+            <AvatarImage src="/profile.jpg" alt={siteConfig.author} />
+            <AvatarFallback>Alan</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col text-left py-1 order-first sm:order-last">
+            <h1 className="text-4xl font-black text-balance tracking-wider">
+              Hola, I&apos;m Alan
+            </h1>
+            <p className="text-muted-foreground sm:text-xl text-balance mt-auto tracking-wide">
+              📝 I throw my thoughts here.
+            </p>
+            <p className="sm:text-xl text-balance">📍 Boston, MA</p>
           </div>
         </div>
+        <div className="mt-15 flex flex-wrap gap-4 justify-center">
+          <Link href="/projects">
+            <StickyNote color="noteYellow" title="Past">
+              <p>BS in Math @ UT Austin</p>
+              <p>BS in Math&CS @ Baylor University</p>
+            </StickyNote>
+          </Link>
+          <Link href="/projects">
+            <StickyNote color="noteBlue" title="Now">
+              <p>MS in Software Engineering @ NEU</p>
+            </StickyNote>
+          </Link>
+          <Link href="/projects">
+            <StickyNote color="notePink" title="Future">
+              <p>﹏✍🏻</p>
+            </StickyNote>
+          </Link>
+        </div>
       </section>
-    </>
+
+      <div className="flex flex-col gap-4 justify-center sm:flex-row"></div>
+    </div>
   );
 }

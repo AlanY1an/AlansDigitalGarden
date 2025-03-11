@@ -8,14 +8,12 @@ export default function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden sm:flex items-center">
+    <nav className="hidden sm:flex items-center underline-offset-3">
       <Link
         href="/"
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:bg-accent",
-          pathname === "/"
-            ? "text-foreground underline"
-            : "text-muted-foreground/60 no-underline"
+          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:underline hover:decoration-wavy",
+          pathname === "/" ? "underline decoration-wavy" : "no-underline"
         )}
         rel="noreferrer"
       >
@@ -25,10 +23,10 @@ export default function MainNav() {
       <Link
         href="/projects"
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:bg-accent",
+          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:underline hover:decoration-wavy",
           pathname === "/projects"
-            ? "text-foreground underline"
-            : "text-muted-foreground/60 no-underline"
+            ? "underline decoration-wavy"
+            : "no-underline"
         )}
         rel="noreferrer"
       >
@@ -37,10 +35,10 @@ export default function MainNav() {
       <Link
         href="/thoughts"
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:bg-accent",
+          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:underline hover:decoration-wavy",
           pathname === "/thoughts"
-            ? "text-foreground underline"
-            : "text-muted-foreground/60 no-underline"
+            ? "underline decoration-wavy"
+            : "no-underline"
         )}
         rel="noreferrer"
       >
@@ -49,10 +47,8 @@ export default function MainNav() {
       <Link
         href="/about"
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:bg-accent",
-          pathname === "/about"
-            ? "text-foreground underline"
-            : "text-muted-foreground/60 no-underline"
+          "text-sm font-medium transition-colors hover:text-primary py-4 px-6 rounded-md hover:underline hover:decoration-wavy",
+          pathname === "/about" ? "underline decoration-wavy" : "no-underline"
         )}
         rel="noreferrer"
       >

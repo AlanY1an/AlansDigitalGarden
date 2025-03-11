@@ -1,0 +1,59 @@
+.noteWrap {
+  width: 300px;
+  min-height: 250px;
+  padding: 25px;
+  margin: 0 22px 44px 22px;
+  position: relative;
+  font-size: 1.5em;
+  vertical-align: top;
+  display: inline-block;
+  font-family: "Englebert", Arial;
+  color: #6b824f;
+  background: #f7e999;
+  line-height: 34px;
+  text-align: center;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.noteWrap:hover {
+  transform: rotate(0deg) scale(1.2); /* Flatten and slightly enlarge on hover */
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow for 3D effect */
+}
+
+.noteWrap:before {
+  content: "";
+  display: block;
+  background: rgba(227, 200, 114, 0.4);
+  width: 130px;
+  height: 28px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px/18px 0;
+  position: absolute;
+  top: -13px;
+  left: 80px;
+  transform: rotate(-2deg);
+}
+
+.title {
+  font-size: 1.3em;
+  color: #4b453c;
+  margin-bottom: 5px;
+}
+
+.noteYellow {
+  background: #f7e999;
+}
+.noteBlue {
+  background: #b9dcf4;
+  transform: rotate(-2deg);
+}
+.notePink {
+  background: #ffbda3;
+  transform: rotate(1deg);
+}
+.noteGreen {
+  background: #caf4b9;
+  transform: rotate(-1deg);
+}
