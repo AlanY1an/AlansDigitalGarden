@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { buttonVariants } from "@/components/ui/button";
+// import { buttonVariants } from "@/components/ui/button";
+// import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import StickyNote from "@/components/widget/sticky-notes/StickyNote";
 
