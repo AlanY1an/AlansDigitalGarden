@@ -54,10 +54,10 @@ export default function RootLayout({
           <div className="relative flex min-h-dvh flex-col bg-background">
             <SiteHeader />
             <main className="flex-1">{children}</main>
+            <SiteFooter />
           </div>
         </ThemeProvider>
       </body>
-      <SiteFooter />
     </html>
   );
 }

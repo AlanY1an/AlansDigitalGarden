@@ -5,6 +5,7 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+import { BackButton } from "@/components/back-button";
 
 interface PostPageProps {
   params: Promise<{
@@ -80,6 +81,10 @@ export default async function PostPage({ params }: PostPageProps) {
       ) : null}
       <hr className="my-4" />
       <MDXContent code={post.body} />
+      <div className="mt-8 not-prose">
+        <hr className="my-4" />
+        <BackButton />
+      </div>
     </article>
   );
 }
